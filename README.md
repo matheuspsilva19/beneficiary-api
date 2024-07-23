@@ -57,8 +57,8 @@ Iremos acessar a documentação do projeto pelo Swagger UI previamente configura
       
 ## Endpoints da Aplicação
 A aplicação medical-care possui os seguintes principais endpoints:
-  - [authenticate-controller](http://localhost:8080/swagger-ui/index.html#/authenticate-controller) endpoint responsavel por gerar o token JWT que será utilizado no 'Authorization' da aplicação
-    Request example:
+  - [authenticate-controller](http://localhost:8080/swagger-ui/index.html#/authenticate-controller) endpoint responsavel por gerar o token JWT que será utilizado no 'Authorization' da aplicação.
+    - Request example:
     ```
     curl -X 'POST' \
       'http://localhost:8080/authenticate' \
@@ -69,7 +69,7 @@ A aplicação medical-care possui os seguintes principais endpoints:
       "password": "123456"
     }'
     ```
-    Response:
+    - Response:
     ```
     {
       "token": "eyJraWQiOiJhZTNjMjQxNS1lNTA0LTQwNDgtYjg5Mi1lOGEyZGRjODAyYWMiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2NjI1NzQsImlhdCI6MTcyMTY2MTM3NCwic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.cYqSq2RhnnJz3-mu-31SBjkfl7QYTOSq_b9Dwn_h4QmX3T08GSkvUHj5sS97BxGVMyPiHZEKPxpZA_9-A_TqbIrHPPiXWWLvNfVtm4HwRA5JhftobKk1toChp4FJn1DCiUcRo4GAFPvcnWQKmE5rTlIzJsCC2Kw84rp_oYZoxPJWjR-8MV9Qk9L_U-ZLtjzuv0P5SdOaQXyYmcFvusZE4_iKD5Dbr-OfUJuTxhgxyK6r6cD7tHkp5HwmdCOVxjbRSv_MX9ghr7gTYfZ8-fVtgRm9Z4WojDEcBuEZZmYtWWuqnxSTRAEWjg-lEnnaJAirXGBPeWorhG97jV7GUVZmvg"
@@ -77,12 +77,12 @@ A aplicação medical-care possui os seguintes principais endpoints:
     ```
 - [beneficiary-controller](http://localhost:8080/swagger-ui/index.html#/beneficiary-controller) principal endpoint da aplicação, onde poderemos realizar o CRUD de um beneficiario
   - Buscando todos os beneficiarios:
-    Request example:
+    - Request example:
     ```
     curl --location 'http://localhost:8080/api/beneficiary/findAll' \
     --header 'Authorization: Bearer eyJraWQiOiJhZTNjMjQxNS1lNTA0LTQwNDgtYjg5Mi1lOGEyZGRjODAyYWMiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2NjM2NzgsImlhdCI6MTcyMTY2MjQ3OCwic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.diLa5LOao9XgDnfJRvRy6i3kjiA0g3FFo_26yBndOqLni6-2plYzSSctIkgDeilvlOdKHTbXyD6F66UDVirDHce7CNrlRpX1sf2d4bWRpyIdTtyCdJThIBmHhRozHOkHGaZ85iPyp0p8sIdi6zYKxE5QxFxPs0D0truXjtupkSRNcUKVuNoDjPv6cP8vXp79xNdmoyQVyht4EtvdnKvSWR5mr-RZLQSd5lFBK5FHeSU0bQOeu-I9bZsvqkOTXWlpM5BU604d8rgOpLtQRwm-EgqSroaz-GWXC9TIxEmbBg9qlwZs0-7i2UCVsb1U35qa4ysKVXStKzzHMHgzqcGZrQ'
     ```
-    Response:
+    - Response:
     ```
     [
         {
@@ -106,14 +106,14 @@ A aplicação medical-care possui os seguintes principais endpoints:
     ]
     ```
   - Buscando um beneficiario pelo Id:
-    Request example:
+    - Request example:
     ```
     curl -X 'GET' \
     'http://localhost:8080/api/beneficiary/1' \
     -H 'accept: */*' \
     -H 'Authorization: Bearer eyJraWQiOiJhZTNjMjQxNS1lNTA0LTQwNDgtYjg5Mi1lOGEyZGRjODAyYWMiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2NjM2NzgsImlhdCI6MTcyMTY2MjQ3OCwic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.diLa5LOao9XgDnfJRvRy6i3kjiA0g3FFo_26yBndOqLni6-2plYzSSctIkgDeilvlOdKHTbXyD6F66UDVirDHce7CNrlRpX1sf2d4bWRpyIdTtyCdJThIBmHhRozHOkHGaZ85iPyp0p8sIdi6zYKxE5QxFxPs0D0truXjtupkSRNcUKVuNoDjPv6cP8vXp79xNdmoyQVyht4EtvdnKvSWR5mr-RZLQSd5lFBK5FHeSU0bQOeu-I9bZsvqkOTXWlpM5BU604d8rgOpLtQRwm-EgqSroaz-GWXC9TIxEmbBg9qlwZs0-7i2UCVsb1U35qa4ysKVXStKzzHMHgzqcGZrQ'
     ```
-    Response:
+    - Response:
     ```
     {
       "id": 1,
@@ -135,7 +135,7 @@ A aplicação medical-care possui os seguintes principais endpoints:
     }
     ```
     - Inserindo um beneficiario:
-    Request example:
+      - Request example:
     ```
     curl -X 'POST' \
       'http://localhost:8080/api/beneficiary' \
@@ -159,7 +159,7 @@ A aplicação medical-care possui os seguintes principais endpoints:
       ]
     }'
     ```
-    Response:
+    - Response:
     ```
     {
       "id": 2,
@@ -181,7 +181,7 @@ A aplicação medical-care possui os seguintes principais endpoints:
     }
     ```
     - Atualizando um beneficiario:
-    Request example:
+      - Request example:
     ```
     curl -X 'PUT' \
       'http://localhost:8080/api/beneficiary/update/2' \
@@ -207,31 +207,31 @@ A aplicação medical-care possui os seguintes principais endpoints:
       ]
     }'
     ```
-    Response:
+    - Response:
     ```
     HTTP STATUS_CODE 204
     ```
     - Atualizando um beneficiario:
-    Request example:
+      - Request example:
     ```
     curl -X 'DELETE' \
     'http://localhost:8080/api/beneficiary/delete/2' \
     -H 'accept: */*' \
     -H 'Authorization: Bearer eyJraWQiOiIxMmZiZTdkOC0xOWI1LTRiZWItODQ3Ni00MTc5YWEwMjYxOWMiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2OTYwMzMsImlhdCI6MTcyMTY5NDgzMywic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.HRE8UYQPrzVCDfJ4UKhC2bHuAZg96AbJiM9Ctch0Is6Pf4iL_QpG_rvEmOU4mABJ11QEX2FN78l5F3z7kiMSw5fsYK-I9Gqp_q56oYWMeORV5CQs-7XuSekgTxB_lCeKk-ScSSYKt33o0WF-TGF4N0RKUnCZ7308rZnw60O9pla9VubR8bD5WZ9AiiCzqmyPMxThS4nGE62peQZHL38zPwrszI1_xBgpc-cCs2qZg17HuQXeIaNWP4UeqiMAHWvgrYPQaUzSlmn_Z9FlLUS8a8rB8EBMDuT5wh7QFnIsRN32EHURh4FgKOHZ7cFsKOgSOI0mJTiO6kOjdBo3fD2wCA'
     ```
-    Response:
+     - Response:
     ```
     HTTP STATUS_CODE 204
     ```
      - Buscando os documentos de um beneficiario pelo id:
-    Request example:
+      - Request example:
     ```
     curl -X 'GET' \
     'http://localhost:8080/api/beneficiary/1/documents' \
     -H 'accept: */*' \
     -H 'Authorization: Bearer eyJraWQiOiIxMmZiZTdkOC0xOWI1LTRiZWItODQ3Ni00MTc5YWEwMjYxOWMiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2OTYwMzMsImlhdCI6MTcyMTY5NDgzMywic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.HRE8UYQPrzVCDfJ4UKhC2bHuAZg96AbJiM9Ctch0Is6Pf4iL_QpG_rvEmOU4mABJ11QEX2FN78l5F3z7kiMSw5fsYK-I9Gqp_q56oYWMeORV5CQs-7XuSekgTxB_lCeKk-ScSSYKt33o0WF-TGF4N0RKUnCZ7308rZnw60O9pla9VubR8bD5WZ9AiiCzqmyPMxThS4nGE62peQZHL38zPwrszI1_xBgpc-cCs2qZg17HuQXeIaNWP4UeqiMAHWvgrYPQaUzSlmn_Z9FlLUS8a8rB8EBMDuT5wh7QFnIsRN32EHURh4FgKOHZ7cFsKOgSOI0mJTiO6kOjdBo3fD2wCA'
     ```
-    Response:
+     - Response:
     ```
     [
       {
