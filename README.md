@@ -134,6 +134,116 @@ A aplicação medical-care possui os seguintes principais endpoints:
       ]
     }
     ```
+    - Inserindo um beneficiario:
+    Request example:
+    ```
+    curl -X 'POST' \
+      'http://localhost:8080/api/beneficiary' \
+      -H 'accept: */*' \
+      -H 'Authorization: Bearer eyJraWQiOiJhMTYxODVlYy1lMmVmLTQ1ZGItYmIwNC05MDFlYmE0NWEwYjkiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2OTU0MTIsImlhdCI6MTcyMTY5NDIxMiwic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.Gfd3TfrrSIXj2Vd29CsfsXuXL9iH1c0mQ7ndGyDzZiysq-30Yt9CkDJxTFgfSXTCDkWY-pk_Z8OUCZKahWbF-ixBRSiROwB6q-ETcwDR4kCYDtNq3pxgioesefLW9xHnNKU3KQs2RYlKS5JHe6nOhGOl_ce0QSmsZJkLJ8Rcmbq32IXt7bGyP1op0KghacOt5RzbLIZYQBfngZMCSchaYZhWkCfpNe-_8x6tXRPx4fkqqEvYlRrjlfL1NkLNpI7SRglihpHNPwKRSeBd9KTp8IjnNbTh5pre-CbYx88eX2z2WW8dTY79Qfov1wnU8dUagASbN2HmBCbaUUqb0fa2Dw' \
+      -H 'Content-Type: application/json' \
+      -d '{
+      "name": "Teste de Souza",
+      "phoneNumber": "string",
+      "birthDate": "2024-07-23",
+      "inclusionDate": "2024-07-23T00:24:01.601Z",
+      "updateDate": "2024-07-23T00:24:01.601Z",
+      "documents": [
+        {
+          "documentType": "string",
+          "documentNumber": "string",
+          "description": "string",
+          "inclusionDate": "2024-07-23T00:24:01.601Z",
+          "updateDate": "2024-07-23T00:24:01.601Z"
+        }
+      ]
+    }'
+    ```
+    Response:
+    ```
+    {
+      "id": 2,
+      "name": "Teste de Souza",
+      "phoneNumber": "string",
+      "birthDate": "2024-07-23",
+      "inclusionDate": "2024-07-23T00:24:01.601",
+      "updateDate": "2024-07-23T00:24:01.601",
+      "documents": [
+        {
+          "id": 2,
+          "documentType": "string",
+          "documentNumber": "string",
+          "description": "string",
+          "inclusionDate": "2024-07-23T00:24:01.601",
+          "updateDate": "2024-07-23T00:24:01.601"
+        }
+      ]
+    }
+    ```
+    - Atualizando um beneficiario:
+    Request example:
+    ```
+    curl -X 'PUT' \
+      'http://localhost:8080/api/beneficiary/update/2' \
+      -H 'accept: */*' \
+      -H 'Authorization: Bearer eyJraWQiOiJhMTYxODVlYy1lMmVmLTQ1ZGItYmIwNC05MDFlYmE0NWEwYjkiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2OTU0MTIsImlhdCI6MTcyMTY5NDIxMiwic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.Gfd3TfrrSIXj2Vd29CsfsXuXL9iH1c0mQ7ndGyDzZiysq-30Yt9CkDJxTFgfSXTCDkWY-pk_Z8OUCZKahWbF-ixBRSiROwB6q-ETcwDR4kCYDtNq3pxgioesefLW9xHnNKU3KQs2RYlKS5JHe6nOhGOl_ce0QSmsZJkLJ8Rcmbq32IXt7bGyP1op0KghacOt5RzbLIZYQBfngZMCSchaYZhWkCfpNe-_8x6tXRPx4fkqqEvYlRrjlfL1NkLNpI7SRglihpHNPwKRSeBd9KTp8IjnNbTh5pre-CbYx88eX2z2WW8dTY79Qfov1wnU8dUagASbN2HmBCbaUUqb0fa2Dw' \
+      -H 'Content-Type: application/json' \
+      -d '{
+      "id": 2,
+      "name": "Teste de Souza",
+      "phoneNumber": "11910203040",
+      "birthDate": "1984-07-23",
+      "inclusionDate": "2024-07-23T00:24:01.601",
+      "updateDate": "2024-07-23T00:24:01.601",
+      "documents": [
+        {
+          "id": 2,
+          "documentType": "RG",
+          "documentNumber": "487441989",
+          "description": "Registro geral",
+          "inclusionDate": "2024-07-23T00:24:01.601",
+          "updateDate": "2024-07-23T00:24:01.601"
+        }
+      ]
+    }'
+    ```
+    Response:
+    ```
+    HTTP STATUS_CODE 204
+    ```
+    - Atualizando um beneficiario:
+    Request example:
+    ```
+    curl -X 'DELETE' \
+    'http://localhost:8080/api/beneficiary/delete/2' \
+    -H 'accept: */*' \
+    -H 'Authorization: Bearer eyJraWQiOiIxMmZiZTdkOC0xOWI1LTRiZWItODQ3Ni00MTc5YWEwMjYxOWMiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2OTYwMzMsImlhdCI6MTcyMTY5NDgzMywic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.HRE8UYQPrzVCDfJ4UKhC2bHuAZg96AbJiM9Ctch0Is6Pf4iL_QpG_rvEmOU4mABJ11QEX2FN78l5F3z7kiMSw5fsYK-I9Gqp_q56oYWMeORV5CQs-7XuSekgTxB_lCeKk-ScSSYKt33o0WF-TGF4N0RKUnCZ7308rZnw60O9pla9VubR8bD5WZ9AiiCzqmyPMxThS4nGE62peQZHL38zPwrszI1_xBgpc-cCs2qZg17HuQXeIaNWP4UeqiMAHWvgrYPQaUzSlmn_Z9FlLUS8a8rB8EBMDuT5wh7QFnIsRN32EHURh4FgKOHZ7cFsKOgSOI0mJTiO6kOjdBo3fD2wCA'
+    ```
+    Response:
+    ```
+    HTTP STATUS_CODE 204
+    ```
+     - Buscando os documentos de um beneficiario pelo id:
+    Request example:
+    ```
+    curl -X 'GET' \
+    'http://localhost:8080/api/beneficiary/1/documents' \
+    -H 'accept: */*' \
+    -H 'Authorization: Bearer eyJraWQiOiIxMmZiZTdkOC0xOWI1LTRiZWItODQ3Ni00MTc5YWEwMjYxOWMiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MjE2OTYwMzMsImlhdCI6MTcyMTY5NDgzMywic2NvcGUiOiJST0xFX0FETUlOIFJPTEVfVVNFUiJ9.HRE8UYQPrzVCDfJ4UKhC2bHuAZg96AbJiM9Ctch0Is6Pf4iL_QpG_rvEmOU4mABJ11QEX2FN78l5F3z7kiMSw5fsYK-I9Gqp_q56oYWMeORV5CQs-7XuSekgTxB_lCeKk-ScSSYKt33o0WF-TGF4N0RKUnCZ7308rZnw60O9pla9VubR8bD5WZ9AiiCzqmyPMxThS4nGE62peQZHL38zPwrszI1_xBgpc-cCs2qZg17HuQXeIaNWP4UeqiMAHWvgrYPQaUzSlmn_Z9FlLUS8a8rB8EBMDuT5wh7QFnIsRN32EHURh4FgKOHZ7cFsKOgSOI0mJTiO6kOjdBo3fD2wCA'
+    ```
+    Response:
+    ```
+    [
+      {
+        "id": 1,
+        "documentType": "CPF",
+        "documentNumber": "16235446020",
+        "description": "Cadastro de Pessoa Física",
+        "inclusionDate": "2024-07-22T21:33:20.666",
+        "updateDate": "2024-07-22T21:33:20.666"
+      }
+    ]
+    ```
 
 ## Acesso ao Banco de Dados H2
 
