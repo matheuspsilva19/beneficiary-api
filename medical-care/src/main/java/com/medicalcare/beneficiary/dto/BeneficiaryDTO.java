@@ -1,6 +1,7 @@
 package com.medicalcare.beneficiary.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -19,13 +20,13 @@ public class BeneficiaryDTO {
 	private String phoneNumber;
 
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	private Date birthDate;
+	private LocalDate birthDate;
 
-	@JsonFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
-	private Date inclusionDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]")
+	private LocalDateTime inclusionDate;
 
-	@JsonFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
-	private Date updateDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]")
+	private LocalDateTime updateDate;
 
 	private List<DocumentDTO> documents;
 }

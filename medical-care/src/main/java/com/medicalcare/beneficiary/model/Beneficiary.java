@@ -1,6 +1,7 @@
 package com.medicalcare.beneficiary.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,10 +24,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "beneficiary")
+@SequenceGenerator(name = "seq_generator", sequenceName = "SEQ_BENEFICIARY", initialValue = 2, allocationSize = 1)
 public class Beneficiary {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 	
@@ -37,15 +40,13 @@ public class Beneficiary {
 	
 	@Column(name = "birth_date")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date birthDate;
+    private LocalDate birthDate;
 	
 	@Column(name = "inclusion_date")
-	@DateTimeFormat(pattern="yyyy-MM-dd-HH.mm.ss")
-    private Date inclusionDate;
+    private LocalDateTime inclusionDate;
 	
 	@Column(name = "update_date")
-	@DateTimeFormat(pattern="yyyy-MM-dd-HH.mm.ss")
-    private Date updateDate;
+    private LocalDateTime updateDate;
 	
 	@OneToMany(mappedBy = "beneficiary", cascade = CascadeType.REMOVE)
 	private List<Document> documents;

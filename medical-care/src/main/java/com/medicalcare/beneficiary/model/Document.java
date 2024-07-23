@@ -1,8 +1,6 @@
 package com.medicalcare.beneficiary.model;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,10 +20,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "document")
+@SequenceGenerator(name = "seq_generator", sequenceName = "SEQ_DOCUMENT", initialValue = 2, allocationSize = 1)
 public class Document {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 	
@@ -38,12 +38,10 @@ public class Document {
 	private String description;
 	
 	@Column(name = "inclusion_date")
-	@DateTimeFormat(pattern="yyyy-MM-dd-HH.mm.ss")
-    private Date inclusionDate;
+    private LocalDateTime inclusionDate;
 	
 	@Column(name = "update_date")
-	@DateTimeFormat(pattern="yyyy-MM-dd-HH.mm.ss")
-    private Date updateDate;
+    private LocalDateTime updateDate;
 	
 	@ManyToOne
     @JoinColumn(name = "beneficiary_id", nullable = false)

@@ -1,6 +1,6 @@
 package com.medicalcare.beneficiary.dto;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,10 +18,10 @@ public class DocumentDTO {
 	private String documentNumber;
 	private String description;
 
-	@JsonFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
-	private Date inclusionDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]")
+	private LocalDateTime inclusionDate;
 
-	@JsonFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
-	private Date updateDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]")
+	private LocalDateTime updateDate;
 
 }
