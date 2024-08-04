@@ -211,7 +211,7 @@ A aplicação medical-care possui os seguintes principais endpoints:
     ```
     HTTP STATUS_CODE 204
     ```
-    - Atualizando um beneficiario:
+    - Deletando um beneficiario:
       - Request example:
     ```
     curl -X 'DELETE' \
